@@ -5,8 +5,7 @@ class Solution:
         for i in a:
             if votes == 0:
                 cand = i
-            if cand == i:
-                votes += 1
-            else:
-                votes -= 1
+            votes += 1 if cand == i else -1
+            if votes > len(a)//2:
+                return cand
         return cand
