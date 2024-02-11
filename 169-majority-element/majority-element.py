@@ -1,11 +1,12 @@
 class Solution:
     def majorityElement(self, a: List[int]) -> int:
-        d = dict()
-        z = a[0]
+        cand  = a[0]
+        votes = 0
         for i in a:
-            if i not in d:
-                d[i] = 0
-            d[i] += 1
-            if d[z] < d[i]:
-                z = i
-        return z
+            if votes == 0:
+                cand = i
+            if cand == i:
+                votes += 1
+            else:
+                votes -= 1
+        return cand
